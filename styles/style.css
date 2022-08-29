@@ -28,7 +28,7 @@
 .open {
   margin-top: 40px;
   margin-left: 10px;
-
+  cursor: pointer;
   width: 150px;
   height: 50px;
   border-radius: 5px;
@@ -70,6 +70,7 @@
   transition: all 0.8s ease 0s;
 }
 .popup__content {
+  display: flex;
   background-color: #fff;
   color: #000;
   max-width: 800px;
@@ -82,4 +83,13 @@
 .popup_img img {
   max-width: 100%;
   vertical-align: top;
+}
+.close {
+  font-size: 30px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bolder;
+  color: crimson;
+  margin-left: 20px;
+  margin-top: -35px;
+  cursor: pointer;
 }

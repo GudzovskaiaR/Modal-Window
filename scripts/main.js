@@ -1,22 +1,25 @@
 const popupButtons = document.querySelectorAll(".open");
 const timeout = 800;
 
-if (popupButtons.length > 0) {
-  popupButtons.forEach((popupButton) => {
-    popupButton.addEventListener("click", function (e) {
-      const popupName = popupButton.getAttribute("id").replace("#", "");
-      const currentPopup = document.getElementById(popupName);
-      popupOpen(currentPopup);
-      e.preventDefault();
-    });
+popupButtons.forEach((popupButton) => {
+  popupButton.addEventListener("click", function (e) {
+    const currentContent = popupButton.closest(".img");
+
+    popupOpen(currentContent);
+    e.preventDefault();
   });
-}
+});
+
 function popupOpen(currentPopup) {
-  const popupActive = document.querySelector(".popup.open");
+  const popupActive = document.querySelector(".popup");
+  const closeButton = document.querySelector(".close");
+  popupActive.querySelector("img").src = currentPopup.querySelector("img").src;
 
-  currentPopup.classList.add("open");
-
-  currentPopup.addEventListener("click", function (e) {
+  popupActive.classList.add("open");
+  closeButton.addEventListener("click", function (e) {
+    popupClose(popupActive);
+  });
+  popupActive.addEventListener("click", function (e) {
     if (!e.target.closest(".popup__content")) {
       popupClose(e.target.closest(".popup"));
     }
